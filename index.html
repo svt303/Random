@@ -105,14 +105,20 @@
     }
 
     .modal {
-      background: #222;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 400px;
-      color: white;
-      text-align: center;
-      box-shadow: 0 0 15px #ff5e5e;
-    }
+  background: #222;
+  width: 1000px;
+  height: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 15px #ff5e5e;
+  overflow-y: auto;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
     .modal button {
       margin-top: 20px;
@@ -124,6 +130,13 @@
       font-size: 1rem;
       color: white;
     }
+    
+    @media (max-width: 1024px) {
+  .modal {
+    width: 90%;
+    height: auto;
+  }
+} 
   </style>
 </head>
 <body>
