@@ -44,58 +44,35 @@
     }
 
     /* Target Video.js player container */
-  .video-js {
-  width: 100% !important;
-  max-width: 400px;
-  position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  height: 0 !important;
-  border-radius: 8px;
-  background: black;
-  overflow: hidden;
-}
-
-.video-js video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 8px;
-  background: black;
-}
-
-@media (max-width: 768px) {
-  .video-container {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-  .video-js {
-    max-width: 100%;
-    padding-top: 56.25%;
-  }
-}
-
-    .password-form {
-      margin-top: 100px;
+    .video-js {
+      width: 100% !important;
+      max-width: 400px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      height: 0 !important;
+      border-radius: 8px;
+      background: black;
+      overflow: hidden;
     }
 
-    input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-      margin-right: 10px;
+    .video-js video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 8px;
+      background: black;
     }
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: none;
-      background-color: #ff5e5e;
-      color: white;
-      cursor: pointer;
+    @media (max-width: 768px) {
+      .video-container {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+      .video-js {
+        max-width: 100%;
+        padding-top: 56.25%;
+      }
     }
 
     /* Modal Styles */
@@ -110,260 +87,522 @@
     }
 
     .modal {
+      background: #222;
+      width: 1000px;
+      height: 400px;
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 0 15px #ff5e5e;
+      overflow-y: auto;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 1024px) {
+      .modal {
+        width: 90%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .modal {
+        padding: 20px;
+        font-size: 0.9rem;
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      .modal h2 {
+        font-size: 1.3rem;
+      }
+
+      .modal p {
+        line-height: 1.4;
+      }
+
+      .modal button {
+        font-size: 1rem;
+        padding: 8px 20px;
+      }
+    }
+
+    /* Styled Close Button */
+    .modal button {
+      background-color: #ff5e5e;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(255, 94, 94, 0.6);
+    }
+
+    .modal button:hover {
+      background-color: #e04e4e;
+    }
+    
+      /* Hamburger button */
+  #hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #hamburger div {
+    background: white;
+    height: 4px;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+ #sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 390px; /* increased width */
+  height: 100vh;
   background: #222;
-  width: 1000px;
-  height: 400px;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1050;
+  overflow-y: auto; /* <-- added for scroll */
+}
+
+  /* Move heading down */
+  #sidebar h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.8em;
+    align-content: center;
+  }
+
+  /* Sidebar list styles */
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  #sidebar ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+   #sidebar ul li.highlight {
+    background-color: #444;
+    padding: 10px 15px;
+    border-radius: 8px;
+  }
+  /*text size*/
+  #sidebar ul li.highlight a {
+    color: white;          /* changed */
+    font-weight: bold;
+    flex-grow: 1;
+    text-decoration: none;
+    font-size: 14px;       /* changed */
+  }
+  
+  #sidebar ul li.highlight span {
   color: white;
-  text-align: center;
-  box-shadow: 0 0 15px #ff5e5e;
-  overflow-y: auto;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-@media (max-width: 1024px) {
-  .modal {
-    width: 90%;
-    height: auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .modal {
-    padding: 20px;
-    font-size: 0.9rem;
-    width: 95%;
-    max-height: 90vh;
-  }
-
-  .modal h2 {
-    font-size: 1.3rem;
-  }
-
-  .modal p {
-    line-height: 1.4;
-  }
-
-  .modal button {
-    font-size: 1rem;
-    padding: 8px 20px;
-  }
-}
-
-.download-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
   font-weight: bold;
-  display: inline-block;
+  flex-grow: 1;
+  font-size: 14px;
+  user-select: none; /* optional */
 }
 
-.download-button:hover {
-  background-color: #218838;
+
+#sidebar ul li.highlight a:hover {
+  text-decoration: none;
 }
+
+  /* Download icon button */
+  .download-btn {
+    width: 26px;
+    height: 26px;
+    fill: white;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: fill 0.3s;
+  }
+  .download-btn:hover {
+    fill: #ffcc00;
+  }
+
+  /* Show sidebar when active */
+  #sidebar.active {
+    transform: translateX(0);
+  }
+  
+  #sidebar {
+  /* existing styles... */
+  height: 100vh;
+  overflow-y: auto;  /* <-- add this line */
+}
+
+/* Mobile-friendly sidebar */
+@media (max-width: 600px) {
+  #sidebar {
+    width: 80vw;        /* narrower on small screens */
+    max-width: 300px;   /* max width for small phones */
+    padding: 15px;
+    font-size: 16px;    /* slightly bigger for tap targets */
+  }
+
+  #sidebar h2 {
+    margin-top: 60px;   /* more space from top */
+    font-size: 1.5em;
+  }
+
+  #sidebar ul li.highlight {
+    padding: 12px 10px; /* bigger clickable area */
+  }
+
+  #sidebar ul li.highlight span {
+    font-size: 16px;
+  }
+
+  .download-btn {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+  }
+
+  /* Hamburger button bigger for touch */
+  #hamburger {
+    width: 40px;
+    height: 36px;
+    top: 20px;
+    left: 20px;
+  }
+
+  #hamburger div {
+    height: 5px;
+  }
+}
+
+.download-btn {
+  display: inline-block;
+  width: 10px;  /* set button width */
+  height: 24px; /* set button height */
+  vertical-align: middle; /* align with text */
+}
+
+.download-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor; /* inherits text color */
+}
+
   </style>
 </head>
 <body>
+  <div id="lockscreen" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#111;z-index:2000;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+  <h2>🔒 Enter Password to Access</h2>
+  <input id="passwordInput" type="password" placeholder="Enter password" style="padding:10px;font-size:1rem;border-radius:5px;border:none;width:250px;max-width:80%;margin-top:15px;" />
+  <button onclick="checkPassword()" style="margin-top:10px;padding:10px 20px;font-size:1rem;border:none;background:#ff5e5e;color:white;border-radius:5px;cursor:pointer;">Unlock</button>
+  <p id="errorMsg" style="color:#ff5e5e;margin-top:10px;display:none;">Incorrect password!</p>
+</div>
+
   <h1>🔒 NANA bnb with SEVENTEEN Vault</h1>
 
-  <div class="password-form" id="passwordForm">
-    <input type="password" id="passwordInput" placeholder="Enter password" />
-    <button onclick="checkPassword()">Unlock</button>
-  </div>
+<!-- Hamburger icon -->
+<div id="hamburger" aria-label="Toggle sidebar" role="button" tabindex="0">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" aria-hidden="true">
+  <h2>DOWNLOAD HERE</h2>
+  <ul>
+ <li class="highlight">
+  <span>[Weverse ONLY] Highlight Preview</span>
+  <a href="https://drive.usercontent.google.com/download?id=1EXjcCx_RhKsEKiyoMmm_lHhSmCmrnLeO&export=download&authuser=2&confirm=t&uuid=6d6ab4af-8316-4130-9f4d-60ad1d2be897&at=ALoNOglq0ZDCorZbdLQCpeaYHHjF:1748844028448" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+ <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+
+   <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+ <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+  <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+ 
+   <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+   <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+   <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+   <li class="highlight">
+  <span></span>
+  <a href="#" 
+     download="EP1_Highlight.mp4"
+     aria-label="Download EP1"
+     tabindex="0"
+     role="link"
+     class="download-btn"
+     style="display:inline-block; width:10px; height:24px; vertical-align:middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:100%; height:100%; fill:currentColor;">
+      <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+    </svg>
+  </a>
+</li>
+
+</div>
 
   <div class="video-row" id="videoRow">
     <!-- Video 1 -->
     <div class="video-container">
       <video id="video1" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://str37.vidoza.net/nvl4fhs7lefeieno3xoajwfypvvy3i6hizxjruimqrrd445na6drxcga3tmq/%5BWeverse+ONLY%5D+Highlight+Preview+e.mp4" type="video/mp4" />
+        <source src="https://str37.vidoza.net/nvl4fhs7lefeieno3xoajwfypvvy3i6hizxjruimqrrd445na6dulw6b3tmq/%5BWeverse+ONLY%5D+Highlight+Preview+.mp4" type="video/mp4" />
         <track src="eng.vtt" kind="subtitles" srclang="en" label="English" default />
       </video>
       <div class="video-title">[Weverse ONLY] Highlight Preview</div>
-     <a class="download-button" href="https://drive.usercontent.google.com/download?id=1EXjcCx_RhKsEKiyoMmm_lHhSmCmrnLeO&export=download&authuser=2&confirm=t&uuid=3d68f74c-434a-43ff-bb12-347557ebbe35&at=ALoNOglgYVv7wLtoM_OxNzmcXnVG:1748797648465" download>⬇ Download</a>
     </div>
-
-    <!-- Video 2 -->
+ 
+  <!-- Video 2 -->
     <div class="video-container">
       <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
         <source src="" type="video/mp4" />
         <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
       </video>
       <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
     </div>
-
-    <!-- Video 3 -->
+    
+     <!-- Video 2 -->
     <div class="video-container">
-      <video id="video3" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
         <source src="" type="video/mp4" />
-        <track src="https://your-subtitle-link-3.vtt" kind="subtitles" srclang="en" label="English" default />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
       </video>
       <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
+    </div>
+    
+     <!-- Video 2 -->
+    <div class="video-container">
+      <video id="video2" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="" type="video/mp4" />
+        <track src="https://your-subtitle-link-2.vtt" kind="subtitles" srclang="en" label="English" default />
+      </video>
+      <div class="video-title"></div>
     </div>
 
-    <!-- Video 4 -->
-    <div class="video-container">
-      <video id="video4" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-4.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-4.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
 
-    <!-- Video 5 -->
-    <div class="video-container">
-      <video id="video5" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-5.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-5.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 6 -->
-    <div class="video-container">
-      <video id="video6" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-6.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-6.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 7 -->
-    <div class="video-container">
-      <video id="video7" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-7.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-7.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 8 -->
-    <div class="video-container">
-      <video id="video8" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-8.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-8.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 9 -->
-    <div class="video-container">
-      <video id="video9" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-9.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-9.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 10 -->
-    <div class="video-container">
-      <video id="video10" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-10.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-10.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 11 -->
-    <div class="video-container">
-      <video id="video11" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-11.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-11.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 12 -->
-    <div class="video-container">
-      <video id="video12" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-12.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-12.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
-
-    <!-- Video 13 -->
-    <div class="video-container">
-      <video id="video13" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="https://your-video-link-13.mp4" type="video/mp4" />
-        <track src="https://your-subtitle-link-13.vtt" kind="subtitles" srclang="en" label="English" default />
-      </video>
-      <div class="video-title"></div>
-      <a class="download-button" href="YOUR_VIDEO_LINK_HERE" download>⬇ Download</a>
-    </div>
   </div>
 
   <!-- Modal -->
-<div class="modal-overlay" id="noticeModal">
-  <div class="modal">
-    <h2>Vault Unlocked! 🎉</h2>
-    <p>
-      Welcome to the <b>NANA bnb with SEVENTEEN Vault!</b> For the best viewing experience, we recommend using a PC or laptop when watching these videos.
-      Mobile devices may have limitations such as smaller screens, less control over video playback, or subtitle issues.
-    </p>
-   <p>
-  The video stops playing every hour due to the file token expiring.
-   </p>
-    <p>
-      If you are using a phone, please make sure to enable <strong>desktop view</strong> on your browser to access all features properly.
-      This helps ensure smoother playback and full access to subtitles and controls.
-    </p>
-    <p>⚠️Please avoid taking screenshots or screen recording any part of this page, especially including the website link. Sharing or reposting content without permission is strictly prohibited and may result in access being revoked.<br><br>
-  ❗ Iwasan ang pag-screenshot o screen record ng video o page na ito, lalo na kung makikita ang link ng site. Mahigpit na ipinagbabawal ang pag-repost o pag-share ng kahit anong content mula dito nang walang pahintulot.<br><br>
-  ❌ Sharing the site link or site password with others is strictly prohibited.<br>
-  ❌ Mahigpit na ipinagbabawal ang pagbabahagi ng link ng site o password sa iba. 
-    </p>
-    <p>
-      Thank you for your understanding and cooperation! ENJOY WATCHING!!
-    </p>
-    <button onclick="closeModal()">Close</button>
+  <div class="modal-overlay" id="noticeModal">
+    <div class="modal">
+      <h2>Vault Unlocked! 🎉</h2>
+      <p>
+        Welcome to the <b>NANA bnb with SEVENTEEN Vault!</b> For the best viewing experience, we recommend using a PC or laptop when watching these videos.
+        Mobile devices may have limitations such as smaller screens, less control over video playback, or subtitle issues.
+        If you are using a phone, please make sure to enable <strong>desktop view</strong> on your browser to access all features properly.
+        This helps ensure smoother playback and full access to subtitles and controls.</p>
+        <p>The video playback is programmed to automatically pause every 6 hours. This intentional pause is designed to help protect the site from copyright violations by limiting continuous streaming.
+      </p>
+      <p>To download, just click the three-line menu icon at the top left of the site and choose whatever file you want to download.</p>
+      <p>⚠️Please avoid taking screenshots or screen recording any part of this page, especially including the website link. Sharing or reposting content without permission is strictly prohibited and may result in access being revoked.<br><br>
+      ❌ Sharing the site link or site password with others is strictly prohibited.<br>
+      </p>
+      <p>
+        Thank you for your understanding and cooperation! ENJOY WATCHING!!
+      </p>
+      <button onclick="closeModal()">Close</button>
+    </div>
   </div>
-</div>
 
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
-  <!-- Password Logic -->
   <script>
-    const correctPassword = "nana.bnb";
-
-    function checkPassword() {
-      const input = document.getElementById("passwordInput").value.trim();
-      if (input === correctPassword) {
-        document.getElementById("passwordForm").style.display = "none";
-        document.getElementById("videoRow").style.display = "flex";
-        // Show modal
-        document.getElementById("noticeModal").style.display = "flex";
-      } else {
-        alert("Incorrect password!");
-      }
-    }
+    
+    
+    // Show modal on page load
+    window.onload = () => {
+      document.getElementById("noticeModal").style.display = "flex";
+      document.getElementById("videoRow").style.display = "flex"; // Show videos since no password now
+    };
 
     function closeModal() {
       document.getElementById("noticeModal").style.display = "none";
     }
-  </script>
 
-  <!-- Disable right-click and inspect -->
-  <script>
+    // Disable right-click and inspect
     document.addEventListener("contextmenu", (e) => e.preventDefault());
 
     document.onkeydown = function (e) {
@@ -376,6 +615,62 @@
         return false;
       }
     };
+    
+      const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    sidebar.setAttribute('aria-hidden', sidebar.classList.contains('active') ? 'false' : 'true');
+  });
+
+  // Keyboard toggle with Enter/Space
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
+    }
+  });
+  
+  async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+ async function checkPassword() {
+  const input = document.getElementById("passwordInput").value.trim();
+  const hash = await hashPassword(input);
+  const correctHash = "d19ad6055148b64c351dcb2d308d331bfa4099a17c4da3072e30d9cf3e7e27dc";
+
+  if (hash === correctHash) {
+    document.getElementById("lockscreen").style.display = "none";
+    document.getElementById("sidebar").style.display = "block";
+    document.getElementById("videoRow").style.display = "flex";
+  } else {
+    document.getElementById("errorMsg").style.display = "block";
+  }
+}
+
+  window.onload = () => {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("videoRow").style.display = "none";
+  };
+  
+  window.addEventListener('load', () => {
+    const modal = document.getElementById('noticeModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    // Show modal
+    modal.style.display = 'flex';
+
+    // Close modal when button clicked
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }); 
   </script>
 </body>
 </html>
